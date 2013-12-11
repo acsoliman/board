@@ -1,8 +1,9 @@
 RewriteEngine On
 
 # App routing
-RewriteRule ^$ index.php?dc_action=thread/index [QSA,L]
-RewriteRule ^$ index.php?dc_action=hello/index [QSA,L]
+RewriteRule ^$ index.php?dc_action=user/login [QSA,L]
+#RewriteRule ^$ index.php?dc_action=thread/index [QSA,L]
+#RewriteRule ^$ index.php?dc_action=hello/index [QSA,L]
 
 # DietCake routing
 RewriteCond %{REQUEST_FILENAME} !-d

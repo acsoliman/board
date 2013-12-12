@@ -4,6 +4,6 @@
 	You successfully created.
 </p>
 
-<a href="<?php eh(url('thread/view', array('thread_id' => $thread->id))) ?>">
-	&larr; Go to thread
+<a href="<?php eh(url('comment/index', array('thread_id' => $thread->id))) ?>">
+	&larr; Go to comments
 </a>

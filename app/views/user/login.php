@@ -19,6 +19,15 @@
 </table>
 </div>
 
+<?php
+if ($invalid) : ?>
+    <div class="alert alert-block">
+        <h4 class="alert-heading">Login error!</h4>
+        <div>Invalid Account!</div>
+    </div>
+<?php
+endif ?>
+
 <form class="well" method="post" action="#">
 	<label>Username</label>
 	<input type="text" class="span2" name="username" value="<?php eh(Param::get('username')) ?>">

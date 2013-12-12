@@ -5,6 +5,9 @@ class UserController extends AppController
 
 	public function login()
 	{ 
+        if(isset($_SESSION['username'])){
+			header("Location: /user/login_success");          			
+        }
         $user = new User;
         $invalid = FALSE;
         $username = Param::get('username');
@@ -35,6 +38,7 @@ class UserController extends AppController
 
 	public function register()
 	{
+        isSessionActive();
         $is_error = FALSE;
         $username = Param::get('username');
 		$password = Param::get('password');
@@ -81,8 +85,13 @@ class UserController extends AppController
         $this->render($page);
 	}
 
+    public function login_success(){
+        isSessionActive();
+    }
+    
 	public function logout()
 	{
-		//session_destroy();
+        isSessionActive();		
+        session_destroy();
 	}
 }

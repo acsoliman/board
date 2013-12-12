@@ -1,14 +1,13 @@
 <?php
 class CommentController extends AppController {
 
-    public function index() { 
-        $array = Comment::getAll(
-                            Param::get('page',1) ,
-                                        Param::get('thread_id')
-                                );
-                $thread_title = $array['thread']->title;
-                $comments = $array['comments'];
-                $last_page = $array['last_page'];
+    public function index()
+    { 
+        $array = Comment::getAll(Param::get('page',1) ,
+                                 Param::get('thread_id'));
+        $thread_title = $array['thread']->title;
+        $comments = $array['comments'];
+        $last_page = $array['last_page'];
         $offset = $array['offset'];
         $pagenum = $array['pagenum'];
         $pagination_ctrl = pagination($last_page, $pagenum, 4);

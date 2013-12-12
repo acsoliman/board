@@ -1,5 +1,5 @@
 
-<h1>All comments</h1>
+<h1><?php eh($thread_title = $array['thread']->title) ?></h1>
 <div class="alert alert-block" style="background-color:#99CCFF" align="right">
 	<div align="right">
 		<h5 style="color:white">WELCOME <?php eh($_SESSION['username']) ?>

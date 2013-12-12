@@ -2,7 +2,8 @@
 class ThreadController extends AppController
 {
 	public function index()
-	{
+	{        
+        isSessionActive();
 		$array = Thread::getAll(Param::get('page',1));
         $threads = $array['threads'];
         $last_page = $array['last_page'];
@@ -14,15 +15,15 @@ class ThreadController extends AppController
 	
 	public function view()
 	{
+        isSessionActive();    
 		$thread = Thread::get(Param::get('thread_id'));
-		$comments = $thread->getComments();
-		
+		$comments = $thread->getComments();		
 		$this->set(get_defined_vars());
 	}
 	
 	public function write()
 	{
-	
+    isSessionActive();	
 	$thread = Thread::get(Param::get('thread_id'));
 	$comment = new Comment;
 	$page = Param::get('page_next');
@@ -44,7 +45,7 @@ class ThreadController extends AppController
 	
 	public function create()
 	{
-
+        isSessionActive();
 		$thread = new Thread;
 		$comment = new Comment;
 		$page = Param::get('page_next', 'create');
